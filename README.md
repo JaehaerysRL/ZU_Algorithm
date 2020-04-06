@@ -5,5 +5,5 @@
 1.8 [二分查找](DataStructure/Base/1_08_BinarySearch/1_08_BinarySearch.cpp)  
 1.9 [有序数组的插入](DataStructure/Base/1_09_Insert/1_09_Insert.cpp)  
 
-## 2020春C入门练习第I段——变量、表达式、分支、循环
-凡127道全部AC，抽空上传
+## [2020春C入门练习第I段——变量、表达式、分支、循环](/CProgram01/)
+凡127道1631分，更新至14题
