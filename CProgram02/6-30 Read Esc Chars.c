@@ -44,60 +44,38 @@ int main()
 }
 
 /* 请在这里填写答案 */
-char hex(int i) {
-	switch (i)
-	{
-	case 0:return '0';
-	case 1:return '1';
-	case 2:return '2';
-	case 3:return '3';
-	case 4:return '4';
-	case 5:return '5';
-	case 6:return '6';
-	case 7:return '7';
-	case 8:return '8';
-	case 9:return '9';
-	case 10:return 'A';
-	case 11:return 'B';
-	case 12:return 'C';
-	case 13:return 'D';
-	case 14:return 'E';
-	case 15:return 'F';
-	default:
-		return '0';
-	}
-}
-
-int read_esc_char(char* line, int len) {
-	int j = 0, count = 0;
-	char tmp;
-	for (int i = 0; i < len; i++)
-	{
-		if (j >= len - 1) {
-            line[j++] = '\0';
-			break;
-        }
-		tmp = getchar();
-		if (tmp == 0) {
-            line[j++] = '\0';
-			break;
-		}
-		else if (tmp <= 32) {
-			int a = tmp / 16;
-			int b = tmp - a * 16;
-            if (j >= len - 3) {
-                line[j++] = '\0';
-			    break;
+int read_esc_char(char* line, int len)
+{
+    scanf("%s", line);
+    int p = 0, q = 0;
+    while (line[p] && p < len)
+    {
+        if (line[p] == '\\')
+        {
+            switch (line[p + 1])
+            {
+            case 'n':line[q++] = '\n';p += 2;break;
+            case 'r':line[q++] = '\r';p += 2;break;
+            case 't':line[q++] = '\t';p += 2;break;
+            case 'b':line[q++] = '\b';p += 2;break;
+            default:
+            {
+                if (p > len - 3) goto END;
+                char tmp= (line[p + 1] - '0') * 16 + line[p + 2] - '0';
+                if (tmp == 0)goto END;
+                line[q++] = tmp;
+                p += 3;
+                break;
             }
-			line[j++] = '\\';
-			line[j++] = hex(a);
-			line[j++] = hex(b);
-            count++;
-		}
-		else {
-			line[j++] = tmp;
-            count++;
-		}
-	}
-	return count;
+            }
+        }
+        else
+        {
+            line[q++] = line[p++];
+        }
+    }
+END:
+    if (q >= len) q = len - 1;
+    line[q] = '\0';
+    return q;
 }
