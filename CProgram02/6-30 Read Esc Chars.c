@@ -46,13 +46,14 @@ int main()
 /* 请在这里填写答案 */
 int read_esc_char(char* line, int len)
 {
-    scanf("%s", line);
+    char base[240];
+    scanf("%s", base);
     int p = 0, q = 0;
-    while (line[p] && p < len)
+    while (base[p] && q < len)
     {
-        if (line[p] == '\\')
+        if (base[p] == '\\')
         {
-            switch (line[p + 1])
+            switch (base[p + 1])
             {
             case 'n':line[q++] = '\n';p += 2;break;
             case 'r':line[q++] = '\r';p += 2;break;
@@ -60,8 +61,7 @@ int read_esc_char(char* line, int len)
             case 'b':line[q++] = '\b';p += 2;break;
             default:
             {
-                if (p > len - 3) goto END;
-                char tmp= (line[p + 1] - '0') * 16 + line[p + 2] - '0';
+                char tmp= (base[p + 1] - '0') * 16 + base[p + 2] - '0';
                 if (tmp == 0)goto END;
                 line[q++] = tmp;
                 p += 3;
@@ -71,7 +71,7 @@ int read_esc_char(char* line, int len)
         }
         else
         {
-            line[q++] = line[p++];
+            line[q++] = base[p++];
         }
     }
 END:
