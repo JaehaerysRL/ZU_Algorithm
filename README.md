@@ -12,6 +12,10 @@
 2.31 [海盗分赃](/DataStructure/DSBase/2_31_海盗分赃/2_31_海盗分赃.cpp)  
 2.32 [用扑克牌计算24点](/DataStructure/DSBase/2_32_用扑克牌计算24点/2_32_用扑克牌计算24点.cpp)  
 
+### [三、线性结构](DataStructure/Linear)
+3.04 [一元多项式的乘法与加法运算](/DataStructure/Linear/3_04_一元多项式的乘法与加法运算/3_04_一元多项式的乘法与加法运算.cpp)  
+3.05 [符号配对](/DataStructure/Linear/3_05_符号配对/3_05_符号配对.cpp)  
+
 ## [2020春C入门练习第I段——变量、表达式、分支、循环](/CProgram01/)
 凡编程127道1631分（AC并上传） 
 
