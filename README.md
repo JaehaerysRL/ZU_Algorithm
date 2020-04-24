@@ -17,6 +17,7 @@
 3.05 [符号配对](/DataStructure/Linear/3_05_符号配对/3_05_符号配对.cpp)  
 3.24 [栈序列的合法性](/DataStructure/Linear/3_24_出栈序列的合法性/3_24_出栈序列的合法性.cpp)  
 3.31 [求前缀表达式的值](/DataStructure/Linear/3_31_求前缀表达式的值/3_31_求前缀表达式的值.cpp)  
+3.33 [ReversingLinkedList](/DataStructure/Linear/3_33_ReversingLinkedList/3_33_ReversingLinkedList.cpp)  
 
 ## [2020春C入门练习第I段——变量、表达式、分支、循环](/CProgram01/)
 凡编程127道1631分（AC并上传） 
