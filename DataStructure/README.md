@@ -45,3 +45,6 @@
 3.25 [堆栈模拟队列](/Linear/3_25_堆栈模拟队列/3_25_堆栈模拟队列.cpp)  
 3.31 [求前缀表达式的值](/Linear/3_31_求前缀表达式的值/3_31_求前缀表达式的值.cpp)  
 3.33 [ReversingLinkedList](/Linear/3_33_ReversingLinkedList/3_33_ReversingLinkedList.cpp)  
+
+## [四、树](/Tree)
+4.00 [TreeBaseCode](/Tree/4_00_TreeBaseCode/4_00_TreeBaseCode.cpp)  
