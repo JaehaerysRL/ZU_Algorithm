@@ -11,7 +11,7 @@ int main()
 #define MAXSIZE 100
 #define NoInfo -1
 #define MAXDATA 10000
-#define MINDATA 10000
+#define MINDATA -10000
 #define ERROR -1
 //二叉树的链表结构
 typedef int ElementType;
@@ -22,6 +22,7 @@ struct TNode
 	ElementType Data;
 	BinTree Left;
 	BinTree Right;
+	int flag;
 };
 //二叉树堆栈
 typedef BinTree SElementType;
@@ -66,6 +67,15 @@ SElementType Pop(Stack S) {
 		return S->Data[(S->Top)--];
 	}
 }
+SElementType Peek(Stack S) {
+	if (IsEmpty(S)) {
+		printf("堆栈空");
+		return SERROR;
+	}
+	else {
+		return S->Data[S->Top];
+	}
+}
 //二叉树队列
 typedef BinTree QElementType;
 typedef int QPosition;
@@ -79,9 +89,10 @@ struct QNode
 QElementType QERROR;
 Queue CreateQueue(int MaxSize) {
 	Queue Q = (Queue)malloc(sizeof(struct QNode));
-	Q->Data = (QElementType*)malloc(sizeof(QElementType));
+	Q->Data = (QElementType*)malloc(sizeof(QElementType)* MaxSize);
 	Q->Front = Q->Rear = 0;
 	Q->MaxSize = MaxSize;
+	return Q;
 }
 bool IsFull(Queue Q) {
 	return ((Q->Rear + 1) % Q->MaxSize == Q->Front);
@@ -140,10 +151,10 @@ void PostorderTraversal(BinTree BT) {
 		printf("%d", BT->Data);
 	}
 }
-//非递归中序遍历
+//非递归遍历
 void InorderTraversal(BinTree BT) {
 	BinTree T;
-	Stack S = CreateStack(MAXSIZE);
+	Stack S = CreateStack();
 	T = BT;
 	while (T || !IsEmpty(S))
 	{
@@ -155,6 +166,45 @@ void InorderTraversal(BinTree BT) {
 		T = Pop(S);
 		printf("%d", T->Data);
 		T = T->Right;
+	}
+}
+void PreorderTraversal(BinTree BT) {
+	BinTree T;
+	Stack S = CreateStack();
+	T = BT;
+	while (T || !IsEmpty(S))
+	{
+		while (T)
+		{
+			printf("%d", T->Data);
+			Push(S, T);
+			T = T->Left;
+		}
+		T = Pop(S);
+		T = T->Right;
+	}
+}
+void PostorderTraversal(BinTree BT) {
+	BinTree T;
+	Stack S = CreateStack();
+	T = BT;
+	while (T || !IsEmpty(S))
+	{
+		while (T)
+		{
+			Push(S, T);
+			T = T->Left;
+		}
+		T = Peek(S);
+		if (T->flag != 1) {
+			T->flag = 1;
+			T = T->Right;
+		}
+		else {
+			T = Pop(S);
+			printf("%d", T->Data);
+			T = NULL;
+		}
 	}
 }
 //层序遍历
@@ -279,9 +329,9 @@ BinTree Delete(BinTree BST, ElementType X) {
 			else {
 				Tmp = BST;
 				if (BST->Left)
-					BST = BST->Right;
-				else
 					BST = BST->Left;
+				else
+					BST = BST->Right;
 				free(Tmp);
 			}
 		}
@@ -303,7 +353,8 @@ int Max(int a, int b) {
 	return a > b ? a : b;
 }
 int GetHeight(AVLTree A) {
-	return A->Height;
+	if (A) return A->Height;
+	else return 0;
 }
 AVLTree SingleLeftRotation(AVLTree A) {
 	AVLTree B = A->Left;
