@@ -22,7 +22,11 @@
 ### [四、树](DataStructure/Tree)
 4.00 [TreeBaseCode](/DataStructure/Tree/4_00_TreeBaseCode/4_00_TreeBaseCode.cpp)  
 4.17 [文件传输](/DataStructure/Tree/4_17_文件传输/4_17_文件传输.cpp)  
-4.21 [树的同构](/DataStructure/Tree/4_21_树的同构/4_21_树的同构.cpp)  
+4.21 [树的同构](/DataStructure/Tree/4_21_树的同构/4_21_树的同构.cpp)
+4.24 [搜索树判断](/DataStructure/Tree/4_24_搜索树判断/4_24_搜索树判断.cpp)  
+4.26 [目录树](/DataStructure/Tree/4_26_目录树/4_26_目录树.cpp)  
+4.41 [Tree_Traversals_Again](/DataStructure/Tree/4_41_Tree_Traversals_Again/4_41_Tree_Traversals_Again.cpp)  
+4.42 [是否同一棵二叉搜索树](/DataStructure/Tree/4_42_是否同一棵二叉搜索树/4_42_是否同一棵二叉搜索树.cpp)    
 
 ## [2020春C入门练习第I段——变量、表达式、分支、循环](/CProgram01/)
 凡编程127道1631分（AC并上传） 

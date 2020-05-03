@@ -37,7 +37,7 @@ struct SNode
 SElementType SERROR;
 Stack CreateStack(int MaxSize) {
 	Stack S = (Stack)malloc(sizeof(struct SNode));
-	S->Data = (SElementType*)malloc(sizeof(SElementType));
+	S->Data = (SElementType*)malloc(sizeof(SElementType)*(MaxSize + 1));
 	S->Top = -1;
 	S->MaxSize = MaxSize;
 	return S;
@@ -89,7 +89,7 @@ struct QNode
 QElementType QERROR;
 Queue CreateQueue(int MaxSize) {
 	Queue Q = (Queue)malloc(sizeof(struct QNode));
-	Q->Data = (QElementType*)malloc(sizeof(QElementType)* MaxSize);
+	Q->Data = (QElementType*)malloc(sizeof(QElementType)* (MaxSize + 1));
 	Q->Front = Q->Rear = 0;
 	Q->MaxSize = MaxSize;
 	return Q;
