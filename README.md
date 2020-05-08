@@ -34,6 +34,9 @@
 4.41 [Tree_Traversals_Again](/DataStructure/Tree/4_41_Tree_Traversals_Again/4_41_Tree_Traversals_Again.cpp)   
 4.42 [是否同一棵二叉搜索树](/DataStructure/Tree/4_42_是否同一棵二叉搜索树/4_42_是否同一棵二叉搜索树.cpp)    
 
+### [五、散列表](DataStructure/Hash)
+5.22 [电话聊天狂人](/DataStructure/Tree/5_22_电话聊天狂人/5_22_电话聊天狂人.cpp)   
+
 ## [2020春C入门练习第I段——变量、表达式、分支、循环](/CProgram01/)
 凡编程127道1631分（AC并上传） 
 
