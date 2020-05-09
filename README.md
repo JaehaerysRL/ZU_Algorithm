@@ -36,6 +36,8 @@
 
 ### [五、散列表](DataStructure/Hash)
 5.22 [电话聊天狂人](/DataStructure/Hash/5_22_电话聊天狂人/5_22_电话聊天狂人.cpp)   
+5.24 [词频统计](/DataStructure/Hash/5_24_词频统计/5_24_词频统计.cpp)   
+5.41 [HashingHardVersion](/DataStructure/Hash/5_41_HashingHardVersion/5_41_HashingHardVersion.cpp)   
 
 ## [2020春C入门练习第I段——变量、表达式、分支、循环](/CProgram01/)
 凡编程127道1631分（AC并上传） 
