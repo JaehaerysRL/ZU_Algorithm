@@ -23,6 +23,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "5_24_词频统计", "5_24_�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "5_41_HashingHardVersion", "5_41_HashingHardVersion\5_41_HashingHardVersion.vcxproj", "{E49F4037-8CC0-481D-BE45-0645CC6F5098}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "5_31_航空公司VIP客户查询", "5_31_航空公司VIP客户查询\5_31_航空公司VIP客户查询.vcxproj", "{A97F869C-920B-46F2-882E-54D5091D650B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "5_32_新浪微博热门话题", "5_32_新浪微博热门话题\5_32_新浪微博热门话题.vcxproj", "{04066EC7-9B36-4F17-A78F-52BFBFD18583}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "5_33_基于词频的文件相似度", "5_33_基于词频的文件相似度\5_33_基于词频的文件相似度.vcxproj", "{1E103C56-A62A-42BE-AADB-839C3BEFDC2F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "5_34_迷你搜索引擎", "5_34_迷你搜索引擎\5_34_迷你搜索引擎.vcxproj", "{EFDC36AD-99C0-4243-94F7-B7ECC521A01E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -111,6 +119,38 @@ Global
 		{E49F4037-8CC0-481D-BE45-0645CC6F5098}.Release|x64.Build.0 = Release|x64
 		{E49F4037-8CC0-481D-BE45-0645CC6F5098}.Release|x86.ActiveCfg = Release|Win32
 		{E49F4037-8CC0-481D-BE45-0645CC6F5098}.Release|x86.Build.0 = Release|Win32
+		{A97F869C-920B-46F2-882E-54D5091D650B}.Debug|x64.ActiveCfg = Debug|x64
+		{A97F869C-920B-46F2-882E-54D5091D650B}.Debug|x64.Build.0 = Debug|x64
+		{A97F869C-920B-46F2-882E-54D5091D650B}.Debug|x86.ActiveCfg = Debug|Win32
+		{A97F869C-920B-46F2-882E-54D5091D650B}.Debug|x86.Build.0 = Debug|Win32
+		{A97F869C-920B-46F2-882E-54D5091D650B}.Release|x64.ActiveCfg = Release|x64
+		{A97F869C-920B-46F2-882E-54D5091D650B}.Release|x64.Build.0 = Release|x64
+		{A97F869C-920B-46F2-882E-54D5091D650B}.Release|x86.ActiveCfg = Release|Win32
+		{A97F869C-920B-46F2-882E-54D5091D650B}.Release|x86.Build.0 = Release|Win32
+		{04066EC7-9B36-4F17-A78F-52BFBFD18583}.Debug|x64.ActiveCfg = Debug|x64
+		{04066EC7-9B36-4F17-A78F-52BFBFD18583}.Debug|x64.Build.0 = Debug|x64
+		{04066EC7-9B36-4F17-A78F-52BFBFD18583}.Debug|x86.ActiveCfg = Debug|Win32
+		{04066EC7-9B36-4F17-A78F-52BFBFD18583}.Debug|x86.Build.0 = Debug|Win32
+		{04066EC7-9B36-4F17-A78F-52BFBFD18583}.Release|x64.ActiveCfg = Release|x64
+		{04066EC7-9B36-4F17-A78F-52BFBFD18583}.Release|x64.Build.0 = Release|x64
+		{04066EC7-9B36-4F17-A78F-52BFBFD18583}.Release|x86.ActiveCfg = Release|Win32
+		{04066EC7-9B36-4F17-A78F-52BFBFD18583}.Release|x86.Build.0 = Release|Win32
+		{1E103C56-A62A-42BE-AADB-839C3BEFDC2F}.Debug|x64.ActiveCfg = Debug|x64
+		{1E103C56-A62A-42BE-AADB-839C3BEFDC2F}.Debug|x64.Build.0 = Debug|x64
+		{1E103C56-A62A-42BE-AADB-839C3BEFDC2F}.Debug|x86.ActiveCfg = Debug|Win32
+		{1E103C56-A62A-42BE-AADB-839C3BEFDC2F}.Debug|x86.Build.0 = Debug|Win32
+		{1E103C56-A62A-42BE-AADB-839C3BEFDC2F}.Release|x64.ActiveCfg = Release|x64
+		{1E103C56-A62A-42BE-AADB-839C3BEFDC2F}.Release|x64.Build.0 = Release|x64
+		{1E103C56-A62A-42BE-AADB-839C3BEFDC2F}.Release|x86.ActiveCfg = Release|Win32
+		{1E103C56-A62A-42BE-AADB-839C3BEFDC2F}.Release|x86.Build.0 = Release|Win32
+		{EFDC36AD-99C0-4243-94F7-B7ECC521A01E}.Debug|x64.ActiveCfg = Debug|x64
+		{EFDC36AD-99C0-4243-94F7-B7ECC521A01E}.Debug|x64.Build.0 = Debug|x64
+		{EFDC36AD-99C0-4243-94F7-B7ECC521A01E}.Debug|x86.ActiveCfg = Debug|Win32
+		{EFDC36AD-99C0-4243-94F7-B7ECC521A01E}.Debug|x86.Build.0 = Debug|Win32
+		{EFDC36AD-99C0-4243-94F7-B7ECC521A01E}.Release|x64.ActiveCfg = Release|x64
+		{EFDC36AD-99C0-4243-94F7-B7ECC521A01E}.Release|x64.Build.0 = Release|x64
+		{EFDC36AD-99C0-4243-94F7-B7ECC521A01E}.Release|x86.ActiveCfg = Release|Win32
+		{EFDC36AD-99C0-4243-94F7-B7ECC521A01E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
