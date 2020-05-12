@@ -94,3 +94,6 @@
 7.00 [SortBaseCode](/Sort/7_00_SortBaseCode/7_00_SortBaseCode.cpp)  
 7.31 [排序](/Sort/7_31_排序/7_31_排序.cpp)  
 
+## [八、综合](/Complex)
+8.31 [KMP串的模式匹配](/Complex/8_31_KMP串的模式匹配/8_31_KMP串的模式匹配.cpp)  
+

@@ -49,6 +49,9 @@
 7.00 [SortBaseCode](/DataStructure/Sort/7_00_SortBaseCode/7_00_SortBaseCode.cpp)  
 7.31 [排序](/DataStructure/Sort/7_31_排序/7_31_排序.cpp)  
 
+### [八、综合](DataStructure/Complex)
+8.31 [KMP串的模式匹配](/DataStructure/Complex/8_31_KMP串的模式匹配/8_31_KMP串的模式匹配.cpp)  
+
 ## [2020春C入门练习第I段——变量、表达式、分支、循环](/CProgram01/)
 凡编程127道1631分（AC并上传） 
 
