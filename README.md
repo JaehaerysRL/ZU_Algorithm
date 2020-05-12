@@ -35,8 +35,11 @@
 4.42 [是否同一棵二叉搜索树](/DataStructure/Tree/4_42_是否同一棵二叉搜索树/4_42_是否同一棵二叉搜索树.cpp)    
 
 ### [五、散列表](DataStructure/Hash)
+5.00 [HashBaseCode](/DataStructure/Hash/5_00_HashBaseCode/5_00_HashBaseCode.cpp)  
 5.22 [电话聊天狂人](/DataStructure/Hash/5_22_电话聊天狂人/5_22_电话聊天狂人.cpp)   
 5.24 [词频统计](/DataStructure/Hash/5_24_词频统计/5_24_词频统计.cpp)   
+5.33 [基于词频的文件相似度](/DataStructure/Hash/5_33_基于词频的文件相似度/5_33_基于词频的文件相似度.cpp)   
+5.34 [迷你搜索引擎](/DataStructure/Hash/5_34_迷你搜索引擎/5_34_迷你搜索引擎.cpp)   
 5.41 [HashingHardVersion](/DataStructure/Hash/5_41_HashingHardVersion/5_41_HashingHardVersion.cpp)   
 
 ## [2020春C入门练习第I段——变量、表达式、分支、循环](/CProgram01/)
