@@ -3,6 +3,48 @@
 
 #include <iostream>
 
+/* 图结点队列的定义 */
+#define ERROR -1
+typedef struct QNode* Queue;
+struct QNode
+{
+	Vertex* Data;
+	int Front, Rear;
+	int MaxSize;
+};
+Queue CreateQueue(int MaxSize) {
+	Queue Q = (Queue)malloc(sizeof(struct QNode));
+	Q->Data = (Vertex*)malloc(MaxSize * sizeof(Vertex));
+	Q->Front = Q->Rear = 0;
+	Q->MaxSize = MaxSize;
+	return Q;
+}
+bool IsFull(Queue Q) {
+	return ((Q->Rear + 1) % Q->MaxSize == Q->Front);
+}
+bool AddQ(Queue Q, Vertex X) {
+	if (IsFull(Q)) {
+		return false;
+	}
+	else {
+		Q->Rear = (Q->Rear + 1) % Q->MaxSize;
+		Q->Data[Q->Rear] = X;
+		return true;
+	}
+}
+bool IsEmpty(Queue Q) {
+	return (Q->Rear == Q->Front);
+}
+Vertex DeleteQ(Queue Q) {
+	if (IsEmpty(Q)) {
+		return false;
+	}
+	else {
+		Q->Front = (Q->Front + 1) % Q->MaxSize;
+		return Q->Data[Q->Front];
+	}
+}
+
 /* 图的邻接矩阵表示法 */
 
 #define MaxVertexNum 100    /* 最大顶点数设为100 */
@@ -18,26 +60,26 @@ struct ENode {
 	WeightType Weight;  /* 权重 */
 };
 typedef PtrToENode Edge;
-
 /* 图结点的定义 */
-typedef struct GNode* PtrToGNode;
-struct GNode {
+typedef struct MGNode* PtrToMGNode;
+struct MGNode {
 	int Nv;  /* 顶点数 */
 	int Ne;  /* 边数   */
 	WeightType G[MaxVertexNum][MaxVertexNum]; /* 邻接矩阵 */
 	DataType Data[MaxVertexNum];      /* 存顶点的数据 */
 	/* 注意：很多情况下，顶点无数据，此时Data[]可以不用出现 */
 };
-typedef PtrToGNode MGraph; /* 以邻接矩阵存储的图类型 */
+typedef PtrToMGNode MGraph; /* 以邻接矩阵存储的图类型 */
 
 
 
-MGraph CreateGraph(int VertexNum)
+
+MGraph CreateMGraph(int VertexNum)
 { /* 初始化一个有VertexNum个顶点但没有边的图 */
 	Vertex V, W;
 	MGraph Graph;
 
-	Graph = (MGraph)malloc(sizeof(struct GNode)); /* 建立图 */
+	Graph = (MGraph)malloc(sizeof(struct MGNode)); /* 建立图 */
 	Graph->Nv = VertexNum;
 	Graph->Ne = 0;
 	/* 初始化邻接矩阵 */
@@ -57,7 +99,7 @@ void InsertEdge(MGraph Graph, Edge E)
 	Graph->G[E->V2][E->V1] = E->Weight;
 }
 
-MGraph BuildGraph()
+MGraph BuildMGraph()
 {
 	MGraph Graph;
 	Edge E;
@@ -65,7 +107,7 @@ MGraph BuildGraph()
 	int Nv, i;
 
 	scanf("%d", &Nv);   /* 读入顶点个数 */
-	Graph = CreateGraph(Nv); /* 初始化有Nv个顶点但没有边的图 */
+	Graph = CreateMGraph(Nv); /* 初始化有Nv个顶点但没有边的图 */
 
 	scanf("%d", &(Graph->Ne));   /* 读入边数 */
 	if (Graph->Ne != 0) { /* 如果有边 */
@@ -85,6 +127,62 @@ MGraph BuildGraph()
 	return Graph;
 }
 
+/* 邻接矩阵存储的图的遍历*/
+/* IsEdge(Graph, V, W)检查<V, W>是否图Graph中的一条边，即W是否V的邻接点。  */
+/* 此函数根据图的不同类型要做不同的实现，关键取决于对不存在的边的表示方法。*/
+/* 例如对有权图, 如果不存在的边被初始化为INFINITY, 则函数实现如下:         */
+bool IsEdge(MGraph Graph, Vertex V, Vertex W)
+{
+	return Graph->G[V][W] < INFINITY ? true : false;
+}
+void Visit(Vertex V)
+{
+	printf("正在访问顶点%d\n", V);
+}
+/* Visited[]为全局变量，已经初始化为false */
+bool Visited[MaxVertexNum] = { false };
+
+/* 邻接矩阵存储的图 - DFS */
+void DFS(MGraph Graph, Vertex S, void (*Visit)(Vertex)) {
+	Vertex W;
+
+	Visit(S);
+	Visited[S] = true; /* 标记S已访问 */
+
+	for (W = 0; W < Graph->Nv; W++) /* 对图中的每个顶点W */
+			/* 若W是V的邻接点并且未访问过 */
+		if (!Visited[W] && IsEdge(Graph, S, W))
+			DFS(Graph, W, Visit);
+}
+
+/* 邻接矩阵存储的图 - BFS */
+void BFS(MGraph Graph, Vertex S, void (*Visit)(Vertex))
+{   /* 以S为出发点对邻接矩阵存储的图Graph进行BFS搜索 */
+	Queue Q;
+	Vertex V, W;
+
+	Q = CreateQueue(MaxVertexNum); /* 创建空队列, MaxSize为外部定义的常数 */
+	/* 访问顶点S：此处可根据具体访问需要改写 */
+	Visit(S);
+	Visited[S] = true; /* 标记S已访问 */
+	AddQ(Q, S); /* S入队列 */
+
+	while (!IsEmpty(Q)) {
+		V = DeleteQ(Q);  /* 弹出V */
+		for (W = 0; W < Graph->Nv; W++) /* 对图中的每个顶点W */
+			/* 若W是V的邻接点并且未访问过 */
+			if (!Visited[W] && IsEdge(Graph, V, W)) {
+				/* 访问顶点W */
+				Visit(W);
+				Visited[W] = true; /* 标记W已访问 */
+				AddQ(Q, W); /* W入队列 */
+			}
+	} /* while结束*/
+}
+
+
+
+
 /* 图的邻接表表示法 */
 
 #define MaxVertexNum 100    /* 最大顶点数设为100 */
@@ -99,7 +197,6 @@ struct ENode {
 	WeightType Weight;  /* 权重 */
 };
 typedef PtrToENode Edge;
-
 /* 邻接点的定义 */
 typedef struct AdjVNode* PtrToAdjVNode;
 struct AdjVNode {
@@ -107,31 +204,27 @@ struct AdjVNode {
 	WeightType Weight;  /* 边权重 */
 	PtrToAdjVNode Next;    /* 指向下一个邻接点的指针 */
 };
-
 /* 顶点表头结点的定义 */
 typedef struct Vnode {
 	PtrToAdjVNode FirstEdge;/* 边表头指针 */
 	DataType Data;            /* 存顶点的数据 */
 	/* 注意：很多情况下，顶点无数据，此时Data可以不用出现 */
 } AdjList[MaxVertexNum];    /* AdjList是邻接表类型 */
-
 /* 图结点的定义 */
-typedef struct GNode* PtrToGNode;
-struct GNode {
+typedef struct LGNode* PtrToLGNode;
+struct LGNode {
 	int Nv;     /* 顶点数 */
 	int Ne;     /* 边数   */
 	AdjList G;  /* 邻接表 */
 };
-typedef PtrToGNode LGraph; /* 以邻接表方式存储的图类型 */
+typedef PtrToLGNode LGraph; /* 以邻接表方式存储的图类型 */
 
-
-
-LGraph CreateGraph(int VertexNum)
+LGraph CreateLGraph(int VertexNum)
 { /* 初始化一个有VertexNum个顶点但没有边的图 */
 	Vertex V;
 	LGraph Graph;
 
-	Graph = (LGraph)malloc(sizeof(struct GNode)); /* 建立图 */
+	Graph = (LGraph)malloc(sizeof(struct LGNode)); /* 建立图 */
 	Graph->Nv = VertexNum;
 	Graph->Ne = 0;
 	/* 初始化邻接表头指针 */
@@ -165,7 +258,7 @@ void InsertEdge(LGraph Graph, Edge E)
 	Graph->G[E->V2].FirstEdge = NewNode;
 }
 
-LGraph BuildGraph()
+LGraph BuildLGraph()
 {
 	LGraph Graph;
 	Edge E;
@@ -173,7 +266,7 @@ LGraph BuildGraph()
 	int Nv, i;
 
 	scanf("%d", &Nv);   /* 读入顶点个数 */
-	Graph = CreateGraph(Nv); /* 初始化有Nv个顶点但没有边的图 */
+	Graph = CreateLGraph(Nv); /* 初始化有Nv个顶点但没有边的图 */
 
 	scanf("%d", &(Graph->Ne));   /* 读入边数 */
 	if (Graph->Ne != 0) { /* 如果有边 */
@@ -193,14 +286,15 @@ LGraph BuildGraph()
 	return Graph;
 }
 
-/* 邻接表存储的图 - DFS */
-
+/* 邻接表存储的图的遍历*/
 void Visit(Vertex V)
 {
 	printf("正在访问顶点%d\n", V);
 }
-
 /* Visited[]为全局变量，已经初始化为false */
+bool Visited[MaxVertexNum] = { false };
+
+/* 邻接表存储的图 - DFS */
 void DFS(LGraph Graph, Vertex V, void (*Visit)(Vertex))
 {   /* 以V为出发点对邻接表存储的图Graph进行DFS搜索 */
 	PtrToAdjVNode W;
@@ -213,37 +307,24 @@ void DFS(LGraph Graph, Vertex V, void (*Visit)(Vertex))
 			DFS(Graph, W->AdjV, Visit);    /* 则递归访问之 */
 }
 
-/* 邻接矩阵存储的图 - BFS */
-
-/* IsEdge(Graph, V, W)检查<V, W>是否图Graph中的一条边，即W是否V的邻接点。  */
-/* 此函数根据图的不同类型要做不同的实现，关键取决于对不存在的边的表示方法。*/
-/* 例如对有权图, 如果不存在的边被初始化为INFINITY, 则函数实现如下:         */
-bool IsEdge(MGraph Graph, Vertex V, Vertex W)
-{
-	return Graph->G[V][W] < INFINITY ? true : false;
-}
-
-/* Visited[]为全局变量，已经初始化为false */
-void BFS(MGraph Graph, Vertex S, void (*Visit)(Vertex))
-{   /* 以S为出发点对邻接矩阵存储的图Graph进行BFS搜索 */
+/* 邻接表存储的图 - BFS */
+void BFS(LGraph Graph, Vertex S, void (*Visit)(Vertex)) {
 	Queue Q;
-	Vertex V, W;
+	Vertex V;
+	PtrToAdjVNode W;
 
-	Q = CreateQueue(MaxSize); /* 创建空队列, MaxSize为外部定义的常数 */
-	/* 访问顶点S：此处可根据具体访问需要改写 */
+	Q = CreateQueue(MaxVertexNum);
 	Visit(S);
 	Visited[S] = true; /* 标记S已访问 */
 	AddQ(Q, S); /* S入队列 */
 
 	while (!IsEmpty(Q)) {
-		V = DeleteQ(Q);  /* 弹出V */
-		for (W = 0; W < Graph->Nv; W++) /* 对图中的每个顶点W */
-			/* 若W是V的邻接点并且未访问过 */
-			if (!Visited[W] && IsEdge(Graph, V, W)) {
-				/* 访问顶点W */
-				Visit(W);
-				Visited[W] = true; /* 标记W已访问 */
-				AddQ(Q, W); /* W入队列 */
+		V = DeleteQ(Q);
+		for (W = Graph->G[V].FirstEdge; W; W = W->Next)
+			if (!Visited[W->AdjV]) {
+				Visit(W->AdjV);
+				Visited[W->AdjV] = true; /* 标记W已访问 */
+				AddQ(Q, W->AdjV); /* W入队列 */
 			}
 	} /* while结束*/
 }
@@ -392,7 +473,7 @@ int Prim(MGraph Graph, LGraph MST)
 	TotalWeight = 0; /* 初始化权重和     */
 	VCount = 0;      /* 初始化收录的顶点数 */
 	/* 创建包含所有顶点但没有边的图。注意用邻接表版本 */
-	MST = CreateGraph(Graph->Nv);
+	MST = CreateLGraph(Graph->Nv);
 	E = (Edge)malloc(sizeof(struct ENode)); /* 建立空的边结点 */
 
 	/* 将初始点0收录进MST */
@@ -520,6 +601,12 @@ void InitializeESet(LGraph Graph, Edge ESet)
 		PercDown(ESet, ECount, Graph->Ne);
 }
 
+void Swap(void* a, void* b) {
+	void* c = a;
+	a = b;
+	b = c;
+}
+
 int GetEdge(Edge ESet, int CurrentSize)
 { /* 给定当前堆的大小CurrentSize，将当前最小边位置弹出并调整堆 */
 
@@ -544,7 +631,7 @@ int Kruskal(LGraph Graph, LGraph MST)
 	ESet = (Edge)malloc(sizeof(struct ENode) * Graph->Ne);
 	InitializeESet(Graph, ESet); /* 初始化边的最小堆 */
 	/* 创建包含所有顶点但没有边的图。注意用邻接表版本 */
-	MST = CreateGraph(Graph->Nv);
+	MST = CreateLGraph(Graph->Nv);
 	TotalWeight = 0; /* 初始化权重和     */
 	ECount = 0;      /* 初始化收录的边数 */
 

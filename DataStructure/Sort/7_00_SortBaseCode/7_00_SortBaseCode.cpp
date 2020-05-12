@@ -2,47 +2,18 @@
 //
 
 #include <iostream>
+#include <algorithm>
+using namespace std;
 
-void InsertionSort(ElementType A[], int N)
-{ /* 插入排序 */
-	int P, i;
-	ElementType Tmp;
-
-	for (P = 1; P < N; P++) {
-		Tmp = A[P]; /* 取出未排序序列中的第一个元素*/
-		for (i = P; i > 0 && A[i - 1] > Tmp; i--)
-			A[i] = A[i - 1]; /*依次与已排序序列中元素比较并右移*/
-		A[i] = Tmp; /* 放进合适的位置 */
-	}
-}
-
-void ShellSort(ElementType A[], int N)
-{ /* 希尔排序 - 用Sedgewick增量序列 */
-	int Si, D, P, i;
-	ElementType Tmp;
-	/* 这里只列出一小部分增量 */
-	int Sedgewick[] = { 929, 505, 209, 109, 41, 19, 5, 1, 0 };
-
-	for (Si = 0; Sedgewick[Si] >= N; Si++)
-		; /* 初始的增量Sedgewick[Si]不能超过待排序列长度 */
-
-	for (D = Sedgewick[Si]; D > 0; D = Sedgewick[++Si])
-		for (P = D; P < N; P++) { /* 插入排序*/
-			Tmp = A[P];
-			for (i = P; i >= D && A[i - D] > Tmp; i -= D)
-				A[i] = A[i - D];
-			A[i] = Tmp;
-		}
-}
-
+typedef int ElementType;
 void Swap(ElementType* a, ElementType* b)
 {
 	ElementType t = *a; *a = *b; *b = t;
 }
 
+/* 堆排序 */
 void PercDown(ElementType A[], int p, int N)
-{ /* 改编代码4.24的PercDown( MaxHeap H, int p )    */
-  /* 将N个元素的数组中以A[p]为根的子堆调整为最大堆 */
+{ /* 将N个元素的数组中以A[p]为根的子堆调整为最大堆 */
 	int Parent, Child;
 	ElementType X;
 
@@ -70,6 +41,83 @@ void HeapSort(ElementType A[], int N)
 		Swap(&A[0], &A[i]); /* 见代码7.1 */
 		PercDown(A, 0, i);
 	}
+}
+
+
+/* 简单插入排序 */
+void InsertionSort(ElementType A[], int N)
+{ 
+	int P, i;
+	ElementType Tmp;
+
+	for (P = 1; P < N; P++) {
+		Tmp = A[P]; /* 取出未排序序列中的第一个元素*/
+		for (i = P; i > 0 && A[i - 1] > Tmp; i--)
+			A[i] = A[i - 1]; /*依次与已排序序列中元素比较并右移*/
+		A[i] = Tmp; /* 放进合适的位置 */
+	}
+}
+
+/*希尔排序 - 用Sedgewick增量序列 */
+void ShellSort(ElementType A[], int N)
+{
+	int Si, D, P, i;
+	ElementType Tmp;
+	/* 这里只列出一小部分增量 */
+	int Sedgewick[] = { 929, 505, 209, 109, 41, 19, 5, 1, 0 };
+
+	for (Si = 0; Sedgewick[Si] >= N; Si++)
+		; /* 初始的增量Sedgewick[Si]不能超过待排序列长度 */
+
+	for (D = Sedgewick[Si]; D > 0; D = Sedgewick[++Si])
+		for (P = D; P < N; P++) { /* 插入排序*/
+			Tmp = A[P];
+			for (i = P; i >= D && A[i - D] > Tmp; i -= D)
+				A[i] = A[i - D];
+			A[i] = Tmp;
+		}
+}
+
+/* 快速排序 */
+
+ElementType Median3(ElementType A[], int Left, int Right)
+{
+	int Center = (Left + Right) / 2;
+	if (A[Left] > A[Center])
+		Swap(&A[Left], &A[Center]);
+	if (A[Left] > A[Right])
+		Swap(&A[Left], &A[Right]);
+	if (A[Center] > A[Right])
+		Swap(&A[Center], &A[Right]);
+	/* 此时A[Left] <= A[Center] <= A[Right] */
+	Swap(&A[Center], &A[Right - 1]); /* 将基准Pivot藏到右边*/
+	/* 只需要考虑A[Left+1] … A[Right-2] */
+	return  A[Right - 1];  /* 返回基准Pivot */
+}
+
+void Qsort(ElementType A[], int Left, int Right)
+{ /* 核心递归函数 */
+	int Pivot, Cutoff, Low, High;
+
+	if (Cutoff <= Right - Left) { /* 如果序列元素充分多，进入快排 */
+		Pivot = Median3(A, Left, Right); /* 选基准 */
+		Low = Left; High = Right - 1;
+		while (1) { /*将序列中比基准小的移到基准左边，大的移到右边*/
+			while (A[++Low] < Pivot);
+			while (A[--High] > Pivot);
+			if (Low < High) Swap(&A[Low], &A[High]);
+			else break;
+		}
+		Swap(&A[Low], &A[Right - 1]);   /* 将基准换到正确的位置 */
+		Qsort(A, Left, Low - 1);    /* 递归解决左边 */
+		Qsort(A, Low + 1, Right);   /* 递归解决右边 */
+	}
+	else InsertionSort(A + Left, Right - Left + 1); /* 元素太少，用简单排序 */
+}
+
+void QuickSort(ElementType A[], int N)
+{ /* 统一接口 */
+	Qsort(A, 0, N - 1);
 }
 
 /* 归并排序 - 递归实现 */
@@ -146,7 +194,7 @@ void Merge_Sort(ElementType A[], int N)
 	ElementType* TmpA;
 
 	length = 1; /* 初始化子序列长度*/
-	TmpA = malloc(N * sizeof(ElementType));
+	TmpA = (ElementType*)malloc(N * sizeof(ElementType));
 	if (TmpA != NULL) {
 		while (length < N) {
 			Merge_pass(A, TmpA, N, length);
@@ -159,85 +207,6 @@ void Merge_Sort(ElementType A[], int N)
 	else printf("空间不足");
 }
 
-/* 快速排序 - 直接调用库函数 */
-
-#include <stdlib.h>
-
-/*---------------简单整数排序--------------------*/
-int compare(const void* a, const void* b)
-{ /* 比较两整数。非降序排列 */
-	return (*(int*)a - *(int*)b);
-}
-/* 调用接口 */
-qsort(A, N, sizeof(int), compare);
-/*---------------简单整数排序--------------------*/
-
-
-/*--------------- 一般情况下，对结构体Node中的某键值key排序 ---------------*/
-struct Node {
-	int key1, key2;
-} A[MAXN];
-
-int compare2keys(const void* a, const void* b)
-{ /* 比较两种键值：按key1非升序排列；如果key1相等，则按key2非降序排列 */
-	int k;
-	if (((const struct Node*)a)->key1 < ((const struct Node*)b)->key1)
-		k = 1;
-	else if (((const struct Node*)a)->key1 > ((const struct Node*)b)->key1)
-		k = -1;
-	else { /* 如果key1相等 */
-		if (((const struct Node*)a)->key2 < ((const struct Node*)b)->key2)
-			k = -1;
-		else
-			k = 1;
-	}
-	return k;
-}
-/* 调用接口 */
-qsort(A, N, sizeof(struct Node), compare2keys);
-/*--------------- 一般情况下，对结构体Node中的某键值key排序 ---------------*/
-
-/* 快速排序 */
-
-ElementType Median3(ElementType A[], int Left, int Right)
-{
-	int Center = (Left + Right) / 2;
-	if (A[Left] > A[Center])
-		Swap(&A[Left], &A[Center]);
-	if (A[Left] > A[Right])
-		Swap(&A[Left], &A[Right]);
-	if (A[Center] > A[Right])
-		Swap(&A[Center], &A[Right]);
-	/* 此时A[Left] <= A[Center] <= A[Right] */
-	Swap(&A[Center], &A[Right - 1]); /* 将基准Pivot藏到右边*/
-	/* 只需要考虑A[Left+1] … A[Right-2] */
-	return  A[Right - 1];  /* 返回基准Pivot */
-}
-
-void Qsort(ElementType A[], int Left, int Right)
-{ /* 核心递归函数 */
-	int Pivot, Cutoff, Low, High;
-
-	if (Cutoff <= Right - Left) { /* 如果序列元素充分多，进入快排 */
-		Pivot = Median3(A, Left, Right); /* 选基准 */
-		Low = Left; High = Right - 1;
-		while (1) { /*将序列中比基准小的移到基准左边，大的移到右边*/
-			while (A[++Low] < Pivot);
-			while (A[--High] > Pivot);
-			if (Low < High) Swap(&A[Low], &A[High]);
-			else break;
-		}
-		Swap(&A[Low], &A[Right - 1]);   /* 将基准换到正确的位置 */
-		Qsort(A, Left, Low - 1);    /* 递归解决左边 */
-		Qsort(A, Low + 1, Right);   /* 递归解决右边 */
-	}
-	else InsertionSort(A + Left, Right - Left + 1); /* 元素太少，用简单排序 */
-}
-
-void QuickSort(ElementType A[], int N)
-{ /* 统一接口 */
-	Qsort(A, 0, N - 1);
-}
 
 /* 基数排序 - 次位优先 */
 
@@ -400,9 +369,15 @@ void MSDRadixSort(ElementType A[], int N)
 	MSD(A, 0, N - 1, MaxDigit);
 }
 
+bool cmp(int a, int b) {
+	return a > b;
+}
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    /* STL排序 */
+	int A[100] = { 0 };
+	sort(A, A + 5, cmp);
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

@@ -1,8 +1,8 @@
 # ZU_Algorithm
 2020年学习浙江大学C语言及数据结构等之代码集合
-## [数据结构](/DataStructure)
+## [数据结构](DataStructure)
 以下仅展示重难点题
-### [一、概论](/DataStructure/Base)
+### [一、概论](DataStructure/Base)
 1.2 [Maximum Subsequence Sum](/DataStructure/Base/1_02_MaxSubSum/1_02_MaxSubSum.cpp)  
 1.3 [两个有序序列的中位数](/DataStructure/Base/1_03_MeanFor2S/1_03_MeanFor2S.cpp)  
 
@@ -41,6 +41,13 @@
 5.33 [基于词频的文件相似度](/DataStructure/Hash/5_33_基于词频的文件相似度/5_33_基于词频的文件相似度.cpp)   
 5.34 [迷你搜索引擎](/DataStructure/Hash/5_34_迷你搜索引擎/5_34_迷你搜索引擎.cpp)   
 5.41 [HashingHardVersion](/DataStructure/Hash/5_41_HashingHardVersion/5_41_HashingHardVersion.cpp)   
+
+### [六、图](DataStructure/Graph)
+6.00 [GraphBaseCode](/DataStructure/Graph/6_00_GraphBaseCode/6_00_GraphBaseCode.cpp)  
+
+### [七、排序](DataStructure/Sort)
+7.00 [SortBaseCode](/DataStructure/Sort/7_00_SortBaseCode/7_00_SortBaseCode.cpp)  
+7.31 [排序](/DataStructure/Sort/7_31_排序/7_31_排序.cpp)  
 
 ## [2020春C入门练习第I段——变量、表达式、分支、循环](/CProgram01/)
 凡编程127道1631分（AC并上传） 
