@@ -91,7 +91,12 @@
 6.00 [GraphBaseCode](/Graph/6_00_GraphBaseCode/6_00_GraphBaseCode.cpp)  
 
 ## [七、排序](/Sort)
-7.00 [SortBaseCode](/Sort/7_00_SortBaseCode/7_00_SortBaseCode.cpp)  
+7.00 [SortBaseCode](/Sort/7_00_SortBaseCode/7_00_SortBaseCode.cpp)   
+7.11 [模拟EXCEL排序](/Sort/7_11_模拟EXCEL排序/7_11_模拟EXCEL排序.cpp)   
+7.12 [插入排序还是归并排序](/Sort/7_12_插入排序还是归并排序/7_12_插入排序还是归并排序.cpp)   
+7.13 [寻找大富翁](/Sort/7_13_寻找大富翁/7_13_寻找大富翁.cpp)   
+7.14 [统计工龄](/Sort/7_14_统计工龄/7_14_统计工龄.cpp)   
+7.15 [与零交换](/Sort/7_15_与零交换/7_15_与零交换.cpp)   
 7.31 [排序](/Sort/7_31_排序/7_31_排序.cpp)  
 
 ## [八、综合](/Complex)
