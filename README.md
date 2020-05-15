@@ -49,7 +49,9 @@
 7.00 [SortBaseCode](/DataStructure/Sort/7_00_SortBaseCode/7_00_SortBaseCode.cpp)  
 7.12 [插入排序还是归并排序](/DataStructure/Sort/7_12_插入排序还是归并排序/7_12_插入排序还是归并排序.cpp)   
 7.15 [与零交换](/DataStructure/Sort/7_15_与零交换/7_15_与零交换.cpp)   
+7.22 [插入排序还是堆排序](/DataStructure/Sort/7_22_插入排序还是堆排序/7_22_插入排序还是堆排序.cpp)   
 7.31 [排序](/DataStructure/Sort/7_31_排序/7_31_排序.cpp)  
+7.32 [PAT_Judge](/DataStructure/Sort/7_32_PAT_Judge/7_32_PAT_Judge.cpp)   
 
 ### [八、综合](DataStructure/Complex)
 8.31 [KMP串的模式匹配](/DataStructure/Complex/8_31_KMP串的模式匹配/8_31_KMP串的模式匹配.cpp)  
