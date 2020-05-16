@@ -43,7 +43,10 @@
 5.41 [HashingHardVersion](/DataStructure/Hash/5_41_HashingHardVersion/5_41_HashingHardVersion.cpp)   
 
 ### [六、图](DataStructure/Graph)
-6.00 [GraphBaseCode](/DataStructure/Graph/6_00_GraphBaseCode/6_00_GraphBaseCode.cpp)  
+6.00 [GraphBaseCode](/DataStructure/Graph/6_00_GraphBaseCode/6_00_GraphBaseCode.cpp)   
+6.15 [旅游规划](/DataStructure/Graph/6_15_旅游规划/6_15_旅游规划.cpp)   
+6.16 [哈利波特的考试](/DataStructure/Graph/6_16_哈利波特的考试/6_16_哈利波特的考试.cpp)   
+6.17 [公路村村通](/DataStructure/Graph/6_17_公路村村通/6_17_公路村村通.cpp)   
 
 ### [七、排序](DataStructure/Sort)
 7.00 [SortBaseCode](/DataStructure/Sort/7_00_SortBaseCode/7_00_SortBaseCode.cpp)  

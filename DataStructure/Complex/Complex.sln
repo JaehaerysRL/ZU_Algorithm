@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "8_31_KMP串的模式匹配", "8_31_KMP串的模式匹配\8_31_KMP串的模式匹配.vcxproj", "{20128503-B4D9-48E0-A215-07FA4218A695}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "8_11_单身狗", "8_11_单身狗\8_11_单身狗.vcxproj", "{FE5CD90B-086F-465B-B580-3635FBDFF4EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{20128503-B4D9-48E0-A215-07FA4218A695}.Release|x64.Build.0 = Release|x64
 		{20128503-B4D9-48E0-A215-07FA4218A695}.Release|x86.ActiveCfg = Release|Win32
 		{20128503-B4D9-48E0-A215-07FA4218A695}.Release|x86.Build.0 = Release|Win32
+		{FE5CD90B-086F-465B-B580-3635FBDFF4EB}.Debug|x64.ActiveCfg = Debug|x64
+		{FE5CD90B-086F-465B-B580-3635FBDFF4EB}.Debug|x64.Build.0 = Debug|x64
+		{FE5CD90B-086F-465B-B580-3635FBDFF4EB}.Debug|x86.ActiveCfg = Debug|Win32
+		{FE5CD90B-086F-465B-B580-3635FBDFF4EB}.Debug|x86.Build.0 = Debug|Win32
+		{FE5CD90B-086F-465B-B580-3635FBDFF4EB}.Release|x64.ActiveCfg = Release|x64
+		{FE5CD90B-086F-465B-B580-3635FBDFF4EB}.Release|x64.Build.0 = Release|x64
+		{FE5CD90B-086F-465B-B580-3635FBDFF4EB}.Release|x86.ActiveCfg = Release|Win32
+		{FE5CD90B-086F-465B-B580-3635FBDFF4EB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

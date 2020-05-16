@@ -72,8 +72,6 @@ struct MGNode {
 typedef PtrToMGNode MGraph; /* 以邻接矩阵存储的图类型 */
 
 
-
-
 MGraph CreateMGraph(int VertexNum)
 { /* 初始化一个有VertexNum个顶点但没有边的图 */
 	Vertex V, W;
@@ -601,10 +599,10 @@ void InitializeESet(LGraph Graph, Edge ESet)
 		PercDown(ESet, ECount, Graph->Ne);
 }
 
-void Swap(void* a, void* b) {
-	void* c = a;
-	a = b;
-	b = c;
+void Swap(struct ENode* a, struct ENode* b) {
+	struct ENode c = *a;
+	*a = *b;
+	*b = c;
 }
 
 int GetEdge(Edge ESet, int CurrentSize)

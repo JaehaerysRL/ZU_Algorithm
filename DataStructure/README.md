@@ -88,7 +88,12 @@
 5.41 [HashingHardVersion](/Hash/5_41_HashingHardVersion/5_41_HashingHardVersion.cpp)   
 
 ## [六、图](/Graph)
-6.00 [GraphBaseCode](/Graph/6_00_GraphBaseCode/6_00_GraphBaseCode.cpp)  
+6.00 [GraphBaseCode](/Graph/6_00_GraphBaseCode/6_00_GraphBaseCode.cpp)   
+6.13 [哥尼斯堡的七桥问题](/Graph/6_13_哥尼斯堡的七桥问题/6_13_哥尼斯堡的七桥问题.cpp)   
+6.14 [地下迷宫探索](/Graph/6_14_地下迷宫探索/6_14_地下迷宫探索.cpp)   
+6.15 [旅游规划](/Graph/6_15_旅游规划/6_15_旅游规划.cpp)   
+6.16 [哈利波特的考试](/Graph/6_16_哈利波特的考试/6_16_哈利波特的考试.cpp)   
+6.17 [公路村村通](/Graph/6_17_公路村村通/6_17_公路村村通.cpp)   
 
 ## [七、排序](/Sort)
 7.00 [SortBaseCode](/Sort/7_00_SortBaseCode/7_00_SortBaseCode.cpp)   
@@ -105,5 +110,6 @@
 7.32 [PAT_Judge](/Sort/7_32_PAT_Judge/7_32_PAT_Judge.cpp)   
 
 ## [八、综合](/Complex)
-8.31 [KMP串的模式匹配](/Complex/8_31_KMP串的模式匹配/8_31_KMP串的模式匹配.cpp)  
+8.11 [单身狗](/Complex/8_11_单身狗/8_11_单身狗.cpp)   
+8.31 [KMP串的模式匹配](/Complex/8_31_KMP串的模式匹配/8_31_KMP串的模式匹配.cpp)   
 
