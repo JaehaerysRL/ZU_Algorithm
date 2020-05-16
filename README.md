@@ -1,5 +1,5 @@
 # ZU_Algorithm
-2020年学习浙江大学C语言及数据结构等之代码集合
+2020年学习浙江大学C语言及数据结构等之代码集合 GPL V2
 ## [数据结构](DataStructure)
 以下仅展示重难点题
 ### [一、概论](DataStructure/Base)
