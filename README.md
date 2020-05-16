@@ -47,6 +47,9 @@
 6.15 [旅游规划](/DataStructure/Graph/6_15_旅游规划/6_15_旅游规划.cpp)   
 6.16 [哈利波特的考试](/DataStructure/Graph/6_16_哈利波特的考试/6_16_哈利波特的考试.cpp)   
 6.17 [公路村村通](/DataStructure/Graph/6_17_公路村村通/6_17_公路村村通.cpp)   
+6.21 [列出连通集](/DataStructure/Graph/6_21_列出连通集/6_21_列出连通集.cpp)   
+6.24 [六度空间](/DataStructure/Graph/6_24_六度空间/6_24_六度空间.cpp)   
+6.26 [最短工期](/DataStructure/Graph/6_26_最短工期/6_26_最短工期.cpp)   
 
 ### [七、排序](DataStructure/Sort)
 7.00 [SortBaseCode](/DataStructure/Sort/7_00_SortBaseCode/7_00_SortBaseCode.cpp)  
