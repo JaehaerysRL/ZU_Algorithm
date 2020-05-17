@@ -50,6 +50,11 @@
 6.21 [列出连通集](/DataStructure/Graph/6_21_列出连通集/6_21_列出连通集.cpp)   
 6.24 [六度空间](/DataStructure/Graph/6_24_六度空间/6_24_六度空间.cpp)   
 6.26 [最短工期](/DataStructure/Graph/6_26_最短工期/6_26_最短工期.cpp)   
+6.32 [社交网络图中结点的重要性计算](/DataStructure/Graph/6_32_社交网络图中结点的重要性计算/6_32_社交网络图中结点的重要性计算.cpp)   
+6.33 [天梯地图](/DataStructure/Graph/6_33_天梯地图/6_33_天梯地图.cpp)   
+6.34 [拯救007升级版](/DataStructure/Graph/6_34_拯救007升级版/6_34_拯救007升级版.cpp)   
+6.35 [关键活动](/DataStructure/Graph/6_35_关键活动/6_35_关键活动.cpp)   
+6.36 [最小生成树的唯一性](/DataStructure/Graph/6_36_最小生成树的唯一性/6_36_最小生成树的唯一性.cpp)   
 
 ### [七、排序](DataStructure/Sort)
 7.00 [SortBaseCode](/DataStructure/Sort/7_00_SortBaseCode/7_00_SortBaseCode.cpp)  
