@@ -65,6 +65,11 @@
 7.32 [PAT_Judge](/DataStructure/Sort/7_32_PAT_Judge/7_32_PAT_Judge.cpp)   
 
 ### [八、综合](DataStructure/Complex)
+8.11 [单身狗](/DataStructure/Complex/8_11_单身狗/8_11_单身狗.cpp)   
+8.12 [直捣黄龙](/DataStructure/Complex/8_12_直捣黄龙/8_12_直捣黄龙.cpp)   
+8.13 [逆散列问题](/DataStructure/Complex/8_13_逆散列问题/8_13_逆散列问题.cpp)   
+8.14 [特殊堆栈](/DataStructure/Complex/8_14_特殊堆栈/8_14_特殊堆栈.cpp)   
+8.15 [二叉搜索树的最近公共祖先](/DataStructure/Complex/8_15_二叉搜索树的最近公共祖先/8_15_二叉搜索树的最近公共祖先.cpp)   
 8.31 [KMP串的模式匹配](/DataStructure/Complex/8_31_KMP串的模式匹配/8_31_KMP串的模式匹配.cpp)  
 
 ## [2020春C入门练习第I段——变量、表达式、分支、循环](/CProgram01/)
